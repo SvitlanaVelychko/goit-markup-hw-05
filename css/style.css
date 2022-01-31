@@ -37,10 +37,6 @@
     --card-gap: 30px;
 }
 
-html {
-    background-color: var(--background-color);
-}
-
 p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
@@ -93,11 +89,18 @@ a {
 
 /* Верхняя линия */
 
-.header {
+.page-header {
+    position: fixed;
+    width: 100%;
+    min-height: 80px;
+    top: 0;
+    left: 0;
     border-bottom: 1px solid var(--border-header-color);
+    z-index: 1;
+    background-color: var(--white-color);
 }
 
-.header .container {
+.page-header .container {
     display: flex;
     align-items: center;
 }
