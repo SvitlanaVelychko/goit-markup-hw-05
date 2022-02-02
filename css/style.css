@@ -287,11 +287,15 @@ a {
     visibility: hidden;
 }
 
+.backdrop.is-hidden .modal {
+    transform: scale(0.5);
+}
+
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
 
     width: 528px;
     min-height: 581px;
@@ -302,7 +306,7 @@ a {
     0px 1px 1px rgba(0, 0, 0, 0.14), 
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
-    transition: transform 250s var(--timing-function),
+    transition: transform 250ms var(--timing-function),
     box-shadow 250ms var(--timing-function);
 }
 
@@ -577,7 +581,7 @@ a {
     transition: color 250ms var(--timing-function);
 }
 
-.link-address:hover {
+.link-address:hover, .link-address:focus {
     color: var(--accent-color);
 }
 
@@ -699,18 +703,17 @@ a {
     margin-top: var(--card-gap);
     margin-left: var(--card-gap);
     background-color: var(--white-color);
-
-    transition: box-shadow 250ms var(--timing-function);
-}
-
-.project-item:hover, .project-item:focus {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
-    0px 4px 4px rgba(0, 0, 0, 0.06), 
-    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-item-link {
     display: block;
+    transition: box-shadow 250ms var(--timing-function);
+}
+
+.project-item-link:hover, .project-item-link:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
+    0px 4px 4px rgba(0, 0, 0, 0.06), 
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-overlay {
@@ -736,7 +739,7 @@ a {
     transition: transform 250ms var(--timing-function);
 }
 
-.project-item:hover .text-overlay {
+.project-item-link:hover .text-overlay, .project-item-link:focus .text-overlay {
     transform: translateY(0);
 }
 
