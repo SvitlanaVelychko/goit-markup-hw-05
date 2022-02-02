@@ -550,6 +550,7 @@ a {
 }
 
 .footer .logo-web, .footer .logo-studio {
+    margin-bottom: 20px;
     color:  var(--accent-color);
     font-family: Raleway;
     font-style: normal;
@@ -557,7 +558,6 @@ a {
     font-size: 26px;
     line-height: 1.19;
     letter-spacing: 0.03em;
-    margin-bottom: 20px;
 }
 
 .footer .logo-studio {
@@ -698,8 +698,8 @@ a {
     flex-basis: calc(100% / 3 - var(--card-gap));
     margin-top: var(--card-gap);
     margin-left: var(--card-gap);
-
     background-color: var(--white-color);
+
     transition: box-shadow 250ms var(--timing-function);
 }
 
