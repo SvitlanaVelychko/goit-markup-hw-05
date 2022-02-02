@@ -18,7 +18,6 @@
 /* цвет фона overlay карточки проекта: rgba(33, 150, 243, 0.9) */
 
 /* отступ между карточками: 30px */
-/* время перехода: 250ms */
 /* функция временного перехода: cubic-bezier(0.4, 0, 0.2, 1) */
 
 /* -----Общие стили----- */
@@ -43,7 +42,6 @@
     --overlay-project-card: rgba(33, 150, 243, 0.9);
 
     --card-gap: 30px;
-    --time-transition: 250ms;
     --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -132,9 +130,9 @@ a {
     align-items: center;
 }
 
-.site-nav .item {
+/*.site-nav .item {
     position: relative;
-}
+}*/
 
 .site-nav .item + .item {
     margin-left: 50px;
@@ -151,9 +149,7 @@ a {
     line-height: 1.14;
     letter-spacing: 0.02em;
 
-    transition-property: color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: color 250ms var(--timing-function);
 }
 
 .site-nav .link:hover, .site-nav .link:focus {
@@ -161,6 +157,7 @@ a {
 }
 
 .site-nav .link.current {
+    position: relative;
     color: var(--accent-color);
 }
 
@@ -196,9 +193,7 @@ a {
     line-height: 1.14px;
     letter-spacing: 0.02em;
 
-    transition-property: color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: color 250ms var(--timing-function);
 }
 
 .header-list .link-mail:hover, .header-list .link-mail:focus {
@@ -268,9 +263,7 @@ a {
     text-align: center;
     letter-spacing: 0.06em;
 
-    transition-property: background-color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: background-color 250ms var(--timing-function);
 }
 
 .hero-btn:hover, .hero-btn:focus {
@@ -480,9 +473,8 @@ a {
     
     color: var(--icon-color);
 
-    transition-property: color, background-color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: color 250ms var(--timing-function), 
+    background-color 250ms var(--timing-function);
 }
 
 .team-social-link:hover, .team-social-link:focus {
@@ -517,9 +509,8 @@ a {
 
     color: var(--icon-color);
 
-    transition-property: color, border;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: color 250ms var(--timing-function), 
+    border 250ms var(--timing-function);
 }
 
 .client-link:hover, .client-link:focus {
@@ -578,9 +569,7 @@ a {
     font-size: 14px;
     line-height: 1.71;
 
-    transition-property: color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: color 250ms var(--timing-function);
 }
 
 .link-address:hover {
@@ -593,9 +582,7 @@ a {
     font-size: 14px;
     line-height: 1.71;
 
-    transition-property: color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: color 250ms var(--timing-function);
 } 
 
 .address-list .link-mail:hover, .address-list .link-mail:focus {
@@ -608,9 +595,7 @@ a {
     font-size: 14px;
     line-height: 1.71;
 
-    transition-property: color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: color 250ms var(--timing-function);
 } 
 
 .address-list .link-tel:hover, .address-list .link-tel:focus {
@@ -639,9 +624,7 @@ a {
     background-color: var(--icon-background-footer);
     color: var(--white-color);
 
-    transition-property: background-color;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: background-color 250ms var(--timing-function);
 }
 
 .footer-social.link:hover, .footer-social.link:focus {
@@ -684,9 +667,9 @@ a {
     text-align: center;
     letter-spacing: 0.03em;
 
-    transition-property: background-color, color, box-shadow;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transition: background-color 250ms var(--timing-function),
+    color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 
 .filters .button:hover, .filters .button:focus {
@@ -708,22 +691,18 @@ a {
 
 .project-item {
     flex-basis: calc(100% / 3 - var(--card-gap));
-    height: 404px;
     margin-top: var(--card-gap);
     margin-left: var(--card-gap);
 
     background-color: var(--white-color);
+    transition: box-shadow 250ms var(--timing-function);
 }
 
 .project-item-link {
     display: block;
-
-    transition-property: box-shadow;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
 }
 
-.project-item-link:hover, .project-item-link:focus {
+.project-item:hover, .project-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
     0px 4px 4px rgba(0, 0, 0, 0.06), 
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -731,50 +710,29 @@ a {
 
 .project-overlay {
     position: relative;
-    display: block;
-}
-
-.project-overlay::before {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-project-card);
-    opacity: 0;
-
-    transition-property: transform, opacity;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transform-origin: bottom;
-}
-
-.project-overlay:hover::before{
-    opacity: 1;
-    transform: translateY(0-100%);
+    overflow: hidden;
 }
 
 .text-overlay {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
     padding: 63px 24px;
-    overflow: hidden;
-    opacity: 0;
 
     font-size: 18px;
     line-height: 1.56;
     color: var(--white-color);
+    background-color: var(--overlay-project-card);
 
-    transition-property: opacity;
-    transition-duration: var(--time-transition);
-    transition-timing-function: var(--timing-function);
+    transform: translateY(100%);
+    transition: transform 250ms var(--timing-function);
 }
 
-.text-overlay:hover {
-    opacity: 1;
+.project-item:hover .text-overlay {
+    transform: translateY(0);
 }
 
 .project-item-content {
