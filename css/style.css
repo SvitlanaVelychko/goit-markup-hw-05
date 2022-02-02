@@ -130,10 +130,6 @@ a {
     align-items: center;
 }
 
-/*.site-nav .item {
-    position: relative;
-}*/
-
 .site-nav .item + .item {
     margin-left: 50px;
 }
@@ -166,6 +162,7 @@ a {
     position: absolute;
     left: 0;
     bottom: -1px;
+
     width: 100%;
     height: 4px;
     border-radius: 2px;
@@ -223,6 +220,7 @@ a {
     padding-bottom: 200px;
     margin-right: auto;
     margin-left: auto;
+
     background-color: var(--background-color-hero);  
     background-image: linear-gradient(to right, var(--background-color-gradient), var(--background-color-gradient)), 
     url(../images/hero.jpg);
@@ -274,14 +272,19 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+
+    width: 100vw;
+    height: 100vh;
     background-color: var(--background-overlay-modal);
-    z-index: 1;
+
+    transition: opacity 250ms var(--timing-function),
+    visibility 250ms var(--timing-function);
 }
+
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    visibility: hidden;
 }
 
 .modal {
@@ -290,7 +293,7 @@ a {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    min-width: 528px;
+    width: 528px;
     min-height: 581px;
     border-radius: 4px;
 
@@ -298,6 +301,9 @@ a {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
     0px 1px 1px rgba(0, 0, 0, 0.14), 
     0px 2px 1px rgba(0, 0, 0, 0.2);
+
+    transition: transform 250s var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 
 .close-button {
@@ -305,15 +311,12 @@ a {
     top: 8px;
     right: 8px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 30px;
     height: 30px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-
-    background-color: var(--white-color);
+    cursor: pointer;
+    background-color: transparent;
 }
 
 /* Section */
@@ -388,21 +391,23 @@ a {
 
 .work-thumb {
     position: relative;
+    z-index: -1;
 }
 
 .work-thumb > .label {
     position: absolute;
-    width: 100%;
-    height: 70px;
     left: 0;
     bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    width: 100%;
+    height: 70px;
+    padding-top: 27px;
+    padding-bottom: 27px;
 
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
+    text-align: center;
     text-transform: uppercase;
     background-color: var(--background-color-label);
     color: var(--white-color);
