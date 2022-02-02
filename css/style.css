@@ -276,6 +276,7 @@ a {
     width: 100vw;
     height: 100vh;
     background-color: var(--background-overlay-modal);
+    opacity: 1;
 
     transition: opacity 250ms var(--timing-function),
     visibility 250ms var(--timing-function);
@@ -288,7 +289,8 @@ a {
 }
 
 .backdrop.is-hidden .modal {
-    transform: scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);
+
 }
 
 .modal {
